@@ -18,8 +18,8 @@
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
                 <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Buscar manga...">
-                    <button onclick="filterMangas()">🔍</button>
+                    <input type="text" id="searchInput" placeholder="Buscar manga..." value="">
+                    <button onclick="searchManga()">🔍</button>
                 </div>
             </nav>
         </div>
@@ -30,19 +30,12 @@
             <div class="container">
                 <h1 class="section-title">📚 Biblioteca Completa</h1>
                 <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="filterByGenre('todos')">Todos</button>
-                    <button class="filter-btn" onclick="filterByGenre('accion')">Acción</button>
-                    <button class="filter-btn" onclick="filterByGenre('aventura')">Aventura</button>
-                    <button class="filter-btn" onclick="filterByGenre('comedia')">Comedia</button>
-                    <button class="filter-btn" onclick="filterByGenre('drama')">Drama</button>
-                    <button class="filter-btn" onclick="filterByGenre('fantasia')">Fantasía</button>
+                    <button class="filter-btn active" data-genre="todos">Todos</button>
+                    <button class="filter-btn" data-genre="Comedia">Comedia</button>
+                    <button class="filter-btn" data-genre="Romance">Romance</button>
+                    <button class="filter-btn" data-genre="Recuentos de la vida">Recuentos de vida</button>
                 </div>
-                <div class="manga-grid" id="allMangas">
-                    <!-- Todos los mangas -->
-                </div>
-                <div class="pagination" id="pagination">
-                    <!-- Paginación -->
-                </div>
+                <div class="manga-grid" id="allMangas"></div>
             </div>
         </section>
     </main>
@@ -56,6 +49,31 @@
     <script src="js/main.js"></script>
     <script>
         loadAllMangas();
+        
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const genre = btn.dataset.genre;
+                filterMangasByGenre(genre);
+            });
+        });
+        
+        function searchManga() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            filterMangasBySearch(query);
+        }
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchManga();
+        });
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('search');
+        if (searchQuery) {
+            document.getElementById('searchInput').value = searchQuery;
+            filterMangasBySearch(searchQuery);
+        }
     </script>
 </body>
 </html>

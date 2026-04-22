@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargando... | MangaScan</title>
+    <title>Karakai Jouzu No (Moto) Takagi-san | MangaScan</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,14 +24,9 @@
     <main>
         <section class="section">
             <div class="container">
-                <div class="manga-detail" id="mangaDetail">
-                    <!-- Detalle del manga -->
-                </div>
-                
-                <h2 class="section-title">📖 Capítulos</h2>
-                <div class="chapters-list" id="chaptersList">
-                    <!-- Lista de capítulos -->
-                </div>
+                <div id="mangaDetail"></div>
+                <h2 class="section-title">📖 Lista de Capítulos</h2>
+                <div class="chapters-list" id="chaptersList"></div>
             </div>
         </section>
     </main>
@@ -44,11 +39,15 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Obtener ID del manga desde la URL
         const urlParams = new URLSearchParams(window.location.search);
         const mangaId = urlParams.get('id');
-        loadMangaDetail(mangaId);
-        loadChaptersList(mangaId);
+        
+        if (mangaId) {
+            loadMangaDetail(mangaId);
+            loadChaptersList(mangaId);
+        } else {
+            window.location.href = 'biblioteca.html';
+        }
     </script>
 </body>
 </html>

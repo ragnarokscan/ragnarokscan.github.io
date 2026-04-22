@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | MangaScan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">Manga<span>Scan</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="biblioteca.html">Biblioteca</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">📧 Contacto</h1>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>📱 Redes Sociales</h3>
+                        <p>💬 Discord: <a href="#">discord.gg/mangascan</a></p>
+                        <p>🐦 Twitter: <a href="#">@MangaScan</a></p>
+                        <p>📷 Instagram: <a href="#">@MangaScan</a></p>
+                        <p>📧 Email: hola@mangascan.com</p>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <h3>✉️ Envíanos un mensaje</h3>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mensaje</label>
+                            <textarea rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 MangaScan - Scanlation en Español</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por contactarnos! Te responderemos pronto.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,39 +1,85 @@
-// Datos de ejemplo de tu scanlation
+// ============================================
+// DATOS DE TU SCANLATION
+// ============================================
+
 const mangasData = [
     {
         id: 1,
-        title: "Shadow Warrior",
-        cover: "img/shadow_warrior.jpg",
-        genre: ["accion", "fantasia"],
-        description: "Un guerrero oscuro busca venganza",
-        status: "En emisión"
-    },
-    {
-        id: 2,
-        title: "Dragon Rising",
-        cover: "img/dragon_rising.jpg",
-        genre: ["aventura", "fantasia"],
-        description: "La leyenda del dragón ancestral",
-        status: "Completado"
+        title: "Karakai Jouzu No (Moto) Takagi-san",
+        title_alt: "La maestra bromista Takagi-san (Madre)",
+        author: "Inaba Mifumi / Yamamoto Souichirou",
+        cover: "https://mangadex.org/covers/ddcebfa2-05a0-4fcd-9cd4-60d779c38f2c/2bed09f7-293b-48a1-ae9c-fd1315bf2f55.jpg",
+        genre: ["Comedia", "Romance", "Recuentos de la vida"],
+        description: "Spin-off de 'Karakai Jouzu no Takagi-san!' La ahora ex Takagi-san y su hija Chi-chan nos traen esta comedia bromista casera. ¿El papá aparecerá también? Una historia familiar llena de risas y momentos tiernos.",
+        status: "En emisión",
+        rating: 4.8
     }
+    // Aquí puedes agregar más mangas después
 ];
 
 const chaptersData = [
-    { id: 1, mangaId: 1, number: 1, title: "El Despertar", date: "2024-01-15", pages: 25 },
-    { id: 2, mangaId: 1, number: 2, title: "El Encuentro", date: "2024-01-20", pages: 22 }
+    { 
+        id: 1, 
+        mangaId: 1, 
+        number: 1, 
+        title: "La venda y el botón", 
+        date: "2024-01-15", 
+        pages: 12
+    },
+    { 
+        id: 2, 
+        mangaId: 1, 
+        number: 2, 
+        title: "Ida y vuelta", 
+        date: "2024-01-20", 
+        pages: 12
+    },
+    { 
+        id: 3, 
+        mangaId: 1, 
+        number: 3, 
+        title: "El paraguas y la arena", 
+        date: "2024-01-25", 
+        pages: 12
+    },
+    { 
+        id: 4, 
+        mangaId: 1, 
+        number: 4, 
+        title: "El concurso y la llave", 
+        date: "2024-02-01", 
+        pages: 12
+    },
+    { 
+        id: 5, 
+        mangaId: 1, 
+        number: 5, 
+        title: "El tesoro escondido", 
+        date: "2024-02-05", 
+        pages: 12
+    }
 ];
 
-// Funciones globales
+// ============================================
+// FUNCIONES PRINCIPALES
+// ============================================
+
 function loadRecentChapters() {
     const recent = [...chaptersData].sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0, 10);
     const container = document.getElementById('recentChapters');
     if (container) {
+        if (recent.length === 0) {
+            container.innerHTML = '<div style="padding: 20px; text-align: center;">Próximamente más capítulos...</div>';
+            return;
+        }
+        
         container.innerHTML = recent.map(ch => `
             <a href="lector.html?manga=${ch.mangaId}&cap=${ch.id}" class="chapter-item">
-                <div>
-                    <strong>${getMangaTitle(ch.mangaId)}</strong> - Capítulo ${ch.number}: ${ch.title}
+                <div class="chapter-info">
+                    <h4>${getMangaTitle(ch.mangaId)} - Capítulo ${ch.number}: ${ch.title}</h4>
+                    <p>${ch.pages} páginas</p>
                 </div>
-                <div>${formatDate(ch.date)}</div>
+                <div class="chapter-date">${formatDate(ch.date)}</div>
             </a>
         `).join('');
     }
@@ -42,12 +88,27 @@ function loadRecentChapters() {
 function loadPopularMangas() {
     const container = document.getElementById('popularMangas');
     if (container) {
-        container.innerHTML = mangasData.slice(0, 4).map(manga => `
+        container.innerHTML = mangasData.map(manga => `
             <a href="manga.html?id=${manga.id}" class="manga-card">
                 <img class="manga-cover" src="${manga.cover}" alt="${manga.title}">
                 <div class="manga-info">
                     <div class="manga-title">${manga.title}</div>
-                    <div>${chaptersData.filter(c => c.mangaId === manga.id).length} caps</div>
+                    <div class="manga-chapter">${chaptersData.filter(c => c.mangaId === manga.id).length} capítulos</div>
+                </div>
+            </a>
+        `).join('');
+    }
+}
+
+function loadAllMangas() {
+    const container = document.getElementById('allMangas');
+    if (container) {
+        container.innerHTML = mangasData.map(manga => `
+            <a href="manga.html?id=${manga.id}" class="manga-card">
+                <img class="manga-cover" src="${manga.cover}" alt="${manga.title}">
+                <div class="manga-info">
+                    <div class="manga-title">${manga.title}</div>
+                    <div class="manga-chapter">${chaptersData.filter(c => c.mangaId === manga.id).length} caps</div>
                 </div>
             </a>
         `).join('');
@@ -59,29 +120,47 @@ function loadMangaDetail(mangaId) {
     if (manga) {
         document.title = `${manga.title} | MangaScan`;
         const container = document.getElementById('mangaDetail');
-        container.innerHTML = `
-            <div class="manga-detail-grid">
-                <img src="${manga.cover}" alt="${manga.title}" class="detail-cover">
-                <div class="detail-info">
-                    <h1>${manga.title}</h1>
-                    <p>${manga.description}</p>
-                    <p>Estado: ${manga.status}</p>
-                    <p>Géneros: ${manga.genre.join(', ')}</p>
+        if (container) {
+            container.innerHTML = `
+                <div class="manga-detail-grid">
+                    <div class="detail-cover-container">
+                        <img class="detail-cover" src="${manga.cover}" alt="${manga.title}">
+                        <div class="rating">⭐ ${manga.rating}/5</div>
+                    </div>
+                    <div class="detail-info">
+                        <h1>${manga.title}</h1>
+                        <h3>${manga.title_alt || ''}</h3>
+                        <p class="author">✍️ ${manga.author}</p>
+                        <p class="description">${manga.description}</p>
+                        <div class="genres">
+                            ${manga.genre.map(g => `<span class="genre-tag">${g}</span>`).join('')}
+                        </div>
+                        <p class="status">📌 Estado: ${manga.status}</p>
+                        ${getLatestChapter(manga.id) ? `<a href="lector.html?manga=${manga.id}&cap=${getLatestChapter(manga.id)}" class="btn-continue">📖 Continuar Leyendo</a>` : ''}
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
+        }
     }
 }
 
 function loadChaptersList(mangaId) {
     const chapters = chaptersData.filter(c => c.mangaId == mangaId).sort((a,b) => b.number - a.number);
     const container = document.getElementById('chaptersList');
-    container.innerHTML = chapters.map(ch => `
-        <a href="lector.html?manga=${mangaId}&cap=${ch.id}" class="chapter-item">
-            <div>Capítulo ${ch.number}: ${ch.title}</div>
-            <div>${formatDate(ch.date)}</div>
-        </a>
-    `).join('');
+    if (container) {
+        if (chapters.length === 0) {
+            container.innerHTML = '<div class="no-chapters" style="padding: 30px; text-align: center;">Próximamente más capítulos...</div>';
+            return;
+        }
+        
+        container.innerHTML = chapters.map(ch => `
+            <a href="lector.html?manga=${mangaId}&cap=${ch.id}" class="chapter-item">
+                <div class="chapter-number">Capítulo ${ch.number}</div>
+                <div class="chapter-title">${ch.title}</div>
+                <div class="chapter-date">${formatDate(ch.date)}</div>
+            </a>
+        `).join('');
+    }
 }
 
 function loadReader(mangaId, chapterId) {
@@ -91,55 +170,123 @@ function loadReader(mangaId, chapterId) {
     if (chapter && manga) {
         document.title = `${manga.title} - Capítulo ${chapter.number} | MangaScan`;
         
-        // Generar páginas (aquí cargas tus imágenes reales)
+        // Generar páginas dinámicamente
+        // IMPORTANTE: Cambia la ruta base según donde tengas tus imágenes
+        // Ejemplo: "chapters/1/1/01.jpg" (mangaId/capitulo/pagina.jpg)
         const pagesContainer = document.getElementById('pagesContainer');
-        let pages = '';
+        let pagesHtml = '';
+        
         for (let i = 1; i <= chapter.pages; i++) {
-            pages += `<img class="manga-page" src="chapters/${mangaId}/cap${chapter.number}/${String(i).padStart(2,'0')}.jpg" alt="Página ${i}">`;
+            const pageNum = String(i).padStart(2, '0');
+            // Ruta de ejemplo - CAMBIA ESTO POR LA RUTA DE TUS IMÁGENES REALES
+            const imgPath = `chapters/${mangaId}/${chapter.number}/${pageNum}.jpg`;
+            pagesHtml += `<img class="manga-page" src="${imgPath}" alt="Página ${i}" loading="lazy" onerror="this.src='https://via.placeholder.com/800x1200/2a2a3e/ff6b6b?text=Pagina+${i}+(Proximamente)'">`;
         }
-        pagesContainer.innerHTML = pages;
+        
+        pagesContainer.innerHTML = pagesHtml;
         
         document.getElementById('readerInfo').innerHTML = `${manga.title} - Capítulo ${chapter.number}: ${chapter.title}`;
         
         // Navegación entre capítulos
-        const chapterIndex = chaptersData.findIndex(c => c.id == chapterId);
+        const mangaChapters = chaptersData.filter(c => c.mangaId == mangaId).sort((a,b) => a.number - b.number);
+        const currentIndex = mangaChapters.findIndex(c => c.id == chapterId);
+        
         const prevBtn = document.getElementById('prevChapter');
         const nextBtn = document.getElementById('nextChapter');
         
-        if (chapterIndex > 0) {
-            const prev = chaptersData[chapterIndex - 1];
-            prevBtn.href = `lector.html?manga=${prev.mangaId}&cap=${prev.id}`;
+        if (currentIndex > 0) {
+            const prev = mangaChapters[currentIndex - 1];
+            prevBtn.href = `lector.html?manga=${mangaId}&cap=${prev.id}`;
+            prevBtn.style.opacity = '1';
+            prevBtn.style.pointerEvents = 'auto';
         } else {
+            prevBtn.href = '#';
             prevBtn.style.opacity = '0.5';
             prevBtn.style.pointerEvents = 'none';
         }
         
-        if (chapterIndex < chaptersData.length - 1) {
-            const next = chaptersData[chapterIndex + 1];
-            nextBtn.href = `lector.html?manga=${next.mangaId}&cap=${next.id}`;
+        if (currentIndex < mangaChapters.length - 1) {
+            const next = mangaChapters[currentIndex + 1];
+            nextBtn.href = `lector.html?manga=${mangaId}&cap=${next.id}`;
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
         } else {
+            nextBtn.href = '#';
             nextBtn.style.opacity = '0.5';
             nextBtn.style.pointerEvents = 'none';
         }
+    } else {
+        document.getElementById('pagesContainer').innerHTML = '<div class="loading">Error: No se encontró el capítulo</div>';
     }
 }
+
+// ============================================
+// FUNCIONES DE UTILIDAD
+// ============================================
 
 function getMangaTitle(mangaId) {
     const manga = mangasData.find(m => m.id === mangaId);
     return manga ? manga.title : 'Desconocido';
 }
 
+function getLatestChapter(mangaId) {
+    const chapters = chaptersData.filter(c => c.mangaId == mangaId);
+    if (chapters.length === 0) return null;
+    const latest = chapters.reduce((max, ch) => ch.number > max.number ? ch : max, chapters[0]);
+    return latest.id;
+}
+
 function formatDate(dateStr) {
     const date = new Date(dateStr);
-    return date.toLocaleDateString('es-ES');
+    return date.toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
-function filterMangas() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = mangasData.filter(m => m.title.toLowerCase().includes(searchTerm));
-    // Actualizar grid con resultados
+function filterMangasByGenre(genre) {
+    const container = document.getElementById('allMangas');
+    if (!container) return;
+    
+    const filtered = genre === 'todos' 
+        ? mangasData 
+        : mangasData.filter(m => m.genre.includes(genre));
+    
+    if (filtered.length === 0) {
+        container.innerHTML = '<div style="padding: 40px; text-align: center;">No se encontraron mangas de este género</div>';
+        return;
+    }
+    
+    container.innerHTML = filtered.map(manga => `
+        <a href="manga.html?id=${manga.id}" class="manga-card">
+            <img class="manga-cover" src="${manga.cover}" alt="${manga.title}">
+            <div class="manga-info">
+                <div class="manga-title">${manga.title}</div>
+                <div class="manga-chapter">${chaptersData.filter(c => c.mangaId === manga.id).length} caps</div>
+            </div>
+        </a>
+    `).join('');
 }
 
-function filterByGenre(genre) {
-    // Filtrar por género
+function filterMangasBySearch(query) {
+    const container = document.getElementById('allMangas');
+    if (!container) return;
+    
+    const filtered = mangasData.filter(m => 
+        m.title.toLowerCase().includes(query) || 
+        m.title_alt?.toLowerCase().includes(query) ||
+        m.author.toLowerCase().includes(query)
+    );
+    
+    if (filtered.length === 0) {
+        container.innerHTML = '<div style="padding: 40px; text-align: center;">No se encontraron resultados para tu búsqueda</div>';
+        return;
+    }
+    
+    container.innerHTML = filtered.map(manga => `
+        <a href="manga.html?id=${manga.id}" class="manga-card">
+            <img class="manga-cover" src="${manga.cover}" alt="${manga.title}">
+            <div class="manga-info">
+                <div class="manga-title">${manga.title}</div>
+                <div class="manga-chapter">${chaptersData.filter(c => c.mangaId === manga.id).length} caps</div>
+            </div>
+        </a>
+    `).join('');
 }

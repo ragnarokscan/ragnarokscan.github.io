@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | MangaScan</title>
+    <title>MangaScan | Karakai Jouzu No (Moto) Takagi-san</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -29,25 +29,21 @@
         <section class="hero">
             <div class="container">
                 <h1>📖 MangaScan</h1>
-                <p>Leer mangas traducidos al español - Actualizaciones diarias</p>
+                <p>Disfruta de Karakai Jouzu No (Moto) Takagi-san y más mangas traducidos por nuestro equipo</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 <h2 class="section-title">🆕 Últimos Capítulos</h2>
-                <div class="recent-list" id="recentChapters">
-                    <!-- Se carga con JS -->
-                </div>
+                <div class="recent-list" id="recentChapters"></div>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
-                <h2 class="section-title">🔥 Mangas Populares</h2>
-                <div class="manga-grid" id="popularMangas">
-                    <!-- Se carga con JS -->
-                </div>
+                <h2 class="section-title">🔥 Manga Destacado</h2>
+                <div class="manga-grid" id="popularMangas"></div>
             </div>
         </section>
     </main>
@@ -55,14 +51,25 @@
     <footer class="footer">
         <div class="container">
             <p>© 2024 MangaScan - Scanlation en Español</p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">Karakai Jouzu No (Moto) Takagi-san © Inaba Mifumi / Yamamoto Souichirou</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script>
-        // Cargar datos al inicio
         loadRecentChapters();
         loadPopularMangas();
+        
+        function searchManga() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (query) {
+                window.location.href = `biblioteca.html?search=${encodeURIComponent(query)}`;
+            }
+        }
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchManga();
+        });
     </script>
 </body>
 </html>

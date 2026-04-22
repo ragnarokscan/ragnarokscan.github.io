@@ -24,7 +24,7 @@ const chaptersData = [
         number: 1, 
         title: "La venda y el botón", 
         date: "2024-01-15", 
-        pages: 12
+        pages: 18
     },
     { 
         id: 2, 

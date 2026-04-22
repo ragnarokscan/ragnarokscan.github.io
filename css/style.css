@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0f0f;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #ff6b6b;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.logo span {
+    color: #ff6b6b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6b6b;
+}
+
+.search-bar {
+    display: flex;
+    background: #2a2a3e;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    padding: 10px 15px;
+    border: none;
+    background: transparent;
+    color: white;
+    width: 250px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background: #ff6b6b;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1578632767115-351597cf2477?ixlib=rb-4.0.3');
+    background-size: cover;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Grid de mangas */
+.manga-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.manga-card {
+    background: #1a1a2e;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.manga-card:hover {
+    transform: translateY(-5px);
+}
+
+.manga-cover {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.manga-info {
+    padding: 15px;
+}
+
+.manga-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Lista de capítulos */
+.chapters-list {
+    background: #1a1a2e;
+    border-radius: 10px;
+}
+
+.chapter-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #2a2a3e;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.3s;
+}
+
+.chapter-item:hover {
+    background: #2a2a3e;
+}
+
+/* Lector */
+.reader-body {
+    background: #0a0a0a;
+    overflow-y: auto;
+}
+
+.reader-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.reader-header {
+    position: sticky;
+    top: 0;
+    background: #1a1a2e;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 10;
+}
+
+.reader-btn {
+    background: #ff6b6b;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.pages-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.manga-page {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Filtros */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background: #2a2a3e;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #ff6b6b;
+}
+
+/* Footer */
+.footer {
+    background: #0a0a0a;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .manga-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}

@@ -8,7 +8,7 @@ const mangasData = [
         title: "Karakai Jouzu No (Moto) Takagi-san",
         title_alt: "La maestra bromista Takagi-san (Madre)",
         author: "Inaba Mifumi / Yamamoto Souichirou",
-        cover: "https://img.novelcool.com/logo/201903/5d/Karakai_Jouzu_No_Moto_Takagi_san5239.jpg",
+        cover: "https://raw.githubusercontent.com/ragnarokscan/ragnarokscan.github.io/refs/heads/main/covers/Karakai%20Jouzu%20No%20(Moto)%20Takagi-san.jpg",
         genre: ["Comedia", "Romance", "Recuentos de la vida"],
         description: "Spin-off de 'Karakai Jouzu no Takagi-san!' La ahora ex Takagi-san y su hija Chi-chan nos traen esta comedia bromista casera. ¿El papá aparecerá también? Una historia familiar llena de risas y momentos tiernos.",
         status: "En emisión",

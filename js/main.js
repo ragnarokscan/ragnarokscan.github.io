@@ -30,85 +30,70 @@ const mangasData = [
 const chaptersData = [
     // ========== KARAKAI JOUZU NO (MOTO) TAKAGI-SAN (mangaId: 1) ==========
     { 
-        id: 1, 
+        id: 314, 
         mangaId: 1, 
-        number: 1, 
-        title: "La venda y el botón", 
+        number: 314, 
+        title: "Capítulo 314 Final", 
         date: "2024-01-15", 
         pages: 18
     },
     { 
-        id: 2, 
+        id: 313, 
         mangaId: 1, 
-        number: 2, 
-        title: "Ida y vuelta", 
-        date: "2024-01-20", 
+        number: 313, 
+        title: "Capítulo 313", 
+        date: "2024-01-14", 
         pages: 18
     },
     { 
-        id: 3, 
+        id: 312, 
         mangaId: 1, 
-        number: 3, 
-        title: "El paraguas y la arena", 
-        date: "2024-01-25", 
+        number: 312, 
+        title: "Capítulo 312", 
+        date: "2024-01-13", 
         pages: 18
     },
     { 
-        id: 4, 
+        id: 311, 
         mangaId: 1, 
-        number: 4, 
-        title: "El concurso y la llave", 
-        date: "2024-02-01", 
+        number: 311, 
+        title: "Capítulo 311", 
+        date: "2024-01-12", 
         pages: 18
     },
     { 
-        id: 5, 
+        id: 310, 
         mangaId: 1, 
-        number: 5, 
-        title: "El tesoro escondido", 
-        date: "2024-02-05", 
+        number: 310, 
+        title: "Capítulo 310", 
+        date: "2024-01-11", 
         pages: 18
     },
     
     // ========== SOREDEMO AYUMU WA YOSETEKURU (mangaId: 2) ==========
     { 
-        id: 6, 
+        id: 225, 
         mangaId: 2, 
-        number: 1, 
+        number: 225, 
         title: "El primer movimiento", 
         date: "2024-02-10", 
         pages: 16
     },
     { 
-        id: 7, 
+        id: 224, 
         mangaId: 2, 
-        number: 2, 
+        number: 224, 
         title: "La estrategia", 
-        date: "2024-02-15", 
+        date: "2024-02-09", 
         pages: 16
     },
+    
     { 
-        id: 8, 
+        id: 223, 
         mangaId: 2, 
-        number: 3, 
-        title: "El jaque", 
-        date: "2024-02-20", 
-        pages: 16
-    },
-    { 
-        id: 9, 
-        mangaId: 2, 
-        number: 4, 
-        title: "La confesión", 
-        date: "2024-02-25", 
-        pages: 16
-    },
-    { 
-        id: 10, 
-        mangaId: 2, 
-        number: 5, 
+        number: 223, 
         title: "El torneo", 
-        date: "2024-03-01", 
+        date: "2024-02-08", 
         pages: 16
     }
 ];

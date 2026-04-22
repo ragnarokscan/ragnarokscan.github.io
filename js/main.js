@@ -19,7 +19,7 @@ const mangasData = [
 
 const chaptersData = [
     { 
-        id: 1, 
+        id: 314, 
         mangaId: 1, 
         number: 314, 
         title: "Capítulo 314 Final", 
@@ -27,34 +27,34 @@ const chaptersData = [
         pages: 18
     },
     { 
-        id: 2, 
+        id: 313, 
         mangaId: 1, 
-        number: 2, 
-        title: "Ida y vuelta", 
+        number: 313, 
+        title: "Capítulo 313", 
         date: "2024-01-20", 
         pages: 18
     },
     { 
-        id: 3, 
+        id: 312, 
         mangaId: 1, 
-        number: 3, 
-        title: "El paraguas y la arena", 
+        number: 312, 
+        title: "Capítulo 312", 
         date: "2024-01-25", 
         pages: 18
     },
     { 
-        id: 4, 
+        id: 311, 
         mangaId: 1, 
-        number: 4, 
-        title: "El concurso y la llave", 
+        number: 311, 
+        title: "Capítulo 311", 
         date: "2024-02-01", 
         pages: 18
     },
     { 
-        id: 5, 
+        id: 310, 
         mangaId: 1, 
-        number: 5, 
-        title: "El tesoro escondido", 
+        number: 310, 
+        title: "Capítulo 310", 
         date: "2024-02-05", 
         pages: 18
     }

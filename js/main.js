@@ -43,7 +43,7 @@ const chaptersData = [
         number: 313, 
         title: "Capítulo 313", 
         date: "2024-01-14", 
-        pages: 18
+        pages: 10
     },
     { 
         id: 312, 
@@ -51,7 +51,7 @@ const chaptersData = [
         number: 312, 
         title: "Capítulo 312", 
         date: "2024-01-13", 
-        pages: 18
+        pages: 10
     },
     { 
         id: 311, 
@@ -59,7 +59,7 @@ const chaptersData = [
         number: 311, 
         title: "Capítulo 311", 
         date: "2024-01-12", 
-        pages: 18
+        pages: 9
     },
     { 
         id: 310, 
@@ -67,7 +67,7 @@ const chaptersData = [
         number: 310, 
         title: "Capítulo 310", 
         date: "2024-01-11", 
-        pages: 18
+        pages: 9
     },
     
     // ========== SOREDEMO AYUMU WA YOSETEKURU (mangaId: 2) ==========

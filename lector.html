@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,4 +36,37 @@
         }
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leyendo... | MangaScan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="reader-body">
+    <div class="reader-container">
+        <div class="reader-header">
+            <div class="reader-info" id="readerInfo"></div>
+            <div class="reader-controls">
+                <a href="#" class="reader-btn" id="prevChapter">◀ Capítulo Anterior</a>
+                <a href="javascript:history.back()" class="reader-btn">📑 Volver</a>
+                <a href="#" class="reader-btn" id="nextChapter">Siguiente Capítulo ▶</a>
+            </div>
+        </div>
+        <div class="pages-container" id="pagesContainer">
+            <!-- Páginas del manga -->
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const mangaId = urlParams.get('manga');
+        const chapterId = urlParams.get('cap');
+        loadReader(mangaId, chapterId);
+    </script>
+</body>
+>>>>>>> 83bc32f869447b53fa86d9d1d5702e1d3e0b4aa5
 </html>

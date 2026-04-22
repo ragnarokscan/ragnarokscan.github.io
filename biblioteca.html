@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -76,4 +77,66 @@
         }
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca | MangaScan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">Manga<span>Scan</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="biblioteca.html">Biblioteca</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar manga...">
+                    <button onclick="filterMangas()">🔍</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">📚 Biblioteca Completa</h1>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterByGenre('todos')">Todos</button>
+                    <button class="filter-btn" onclick="filterByGenre('accion')">Acción</button>
+                    <button class="filter-btn" onclick="filterByGenre('aventura')">Aventura</button>
+                    <button class="filter-btn" onclick="filterByGenre('comedia')">Comedia</button>
+                    <button class="filter-btn" onclick="filterByGenre('drama')">Drama</button>
+                    <button class="filter-btn" onclick="filterByGenre('fantasia')">Fantasía</button>
+                </div>
+                <div class="manga-grid" id="allMangas">
+                    <!-- Todos los mangas -->
+                </div>
+                <div class="pagination" id="pagination">
+                    <!-- Paginación -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 MangaScan - Scanlation en Español</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        loadAllMangas();
+    </script>
+</body>
+>>>>>>> 83bc32f869447b53fa86d9d1d5702e1d3e0b4aa5
 </html>

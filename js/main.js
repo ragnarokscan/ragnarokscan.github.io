@@ -31,32 +31,32 @@ const chaptersData = [
         mangaId: 1, 
         number: 313, 
         title: "Capítulo 313", 
-        date: "2024-01-20", 
-        pages: 18
+        date: "2024-01-14", 
+        pages: 10
     },
     { 
         id: 312, 
         mangaId: 1, 
         number: 312, 
         title: "Capítulo 312", 
-        date: "2024-01-25", 
-        pages: 18
+        date: "2024-01-13", 
+        pages: 10
     },
     { 
         id: 311, 
         mangaId: 1, 
         number: 311, 
         title: "Capítulo 311", 
-        date: "2024-02-01", 
-        pages: 18
+        date: "2024-01-12", 
+        pages: 9
     },
     { 
         id: 310, 
         mangaId: 1, 
         number: 310, 
         title: "Capítulo 310", 
-        date: "2024-02-05", 
-        pages: 18
+        date: "2024-01-11", 
+        pages: 9
     }
 ];
 

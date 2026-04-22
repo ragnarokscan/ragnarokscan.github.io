@@ -32,7 +32,7 @@ const chaptersData = [
         number: 2, 
         title: "Ida y vuelta", 
         date: "2024-01-20", 
-        pages: 12
+        pages: 18
     },
     { 
         id: 3, 
@@ -40,7 +40,7 @@ const chaptersData = [
         number: 3, 
         title: "El paraguas y la arena", 
         date: "2024-01-25", 
-        pages: 12
+        pages: 18
     },
     { 
         id: 4, 
@@ -48,7 +48,7 @@ const chaptersData = [
         number: 4, 
         title: "El concurso y la llave", 
         date: "2024-02-01", 
-        pages: 12
+        pages: 18
     },
     { 
         id: 5, 
@@ -56,7 +56,7 @@ const chaptersData = [
         number: 5, 
         title: "El tesoro escondido", 
         date: "2024-02-05", 
-        pages: 12
+        pages: 18
     }
 ];
 

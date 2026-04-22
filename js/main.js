@@ -21,8 +21,8 @@ const chaptersData = [
     { 
         id: 1, 
         mangaId: 1, 
-        number: 1, 
-        title: "La venda y el botón", 
+        number: 314, 
+        title: "Capítulo 314 Final", 
         date: "2024-01-15", 
         pages: 18
     },

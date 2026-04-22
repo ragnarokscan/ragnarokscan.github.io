@@ -28,60 +28,93 @@ const mangasData = [
 ];
 
 const chaptersData = [
+    // ========== KARAKAI JOUZU NO (MOTO) TAKAGI-SAN (mangaId: 1) ==========
     { 
-        id: 314, 
+        id: 1, 
         mangaId: 1, 
-        number: 314, 
-        title: "Capítulo 314 Final", 
+        number: 1, 
+        title: "La venda y el botón", 
         date: "2024-01-15", 
         pages: 18
     },
     { 
-        id: 313, 
+        id: 2, 
         mangaId: 1, 
-        number: 313, 
-        title: "Capítulo 313", 
-        date: "2024-01-14", 
-        pages: 10
+        number: 2, 
+        title: "Ida y vuelta", 
+        date: "2024-01-20", 
+        pages: 18
     },
     { 
-        id: 312, 
+        id: 3, 
         mangaId: 1, 
-        number: 312, 
-        title: "Capítulo 312", 
-        date: "2024-01-13", 
-        pages: 10
+        number: 3, 
+        title: "El paraguas y la arena", 
+        date: "2024-01-25", 
+        pages: 18
     },
     { 
-        id: 311, 
+        id: 4, 
         mangaId: 1, 
-        number: 311, 
-        title: "Capítulo 311", 
-        date: "2024-01-12", 
-        pages: 9
+        number: 4, 
+        title: "El concurso y la llave", 
+        date: "2024-02-01", 
+        pages: 18
     },
     { 
-        id: 310, 
+        id: 5, 
         mangaId: 1, 
-        number: 310, 
-        title: "Capítulo 310", 
-        date: "2024-01-11", 
-        pages: 9
+        number: 5, 
+        title: "El tesoro escondido", 
+        date: "2024-02-05", 
+        pages: 18
     },
-
+    
+    // ========== SOREDEMO AYUMU WA YOSETEKURU (mangaId: 2) ==========
     { 
-        id: 225,  // ← ID único, sigue la secuencia
-        mangaId: 2,  // ← ID del nuevo manga
-        number: 225, 
+        id: 6, 
+        mangaId: 2, 
+        number: 1, 
         title: "El primer movimiento", 
         date: "2024-02-10", 
-        pages: 16  // ← Número de páginas reales
+        pages: 16
+    },
+    { 
+        id: 7, 
+        mangaId: 2, 
+        number: 2, 
+        title: "La estrategia", 
+        date: "2024-02-15", 
+        pages: 16
+    },
+    { 
+        id: 8, 
+        mangaId: 2, 
+        number: 3, 
+        title: "El jaque", 
+        date: "2024-02-20", 
+        pages: 16
+    },
+    { 
+        id: 9, 
+        mangaId: 2, 
+        number: 4, 
+        title: "La confesión", 
+        date: "2024-02-25", 
+        pages: 16
+    },
+    { 
+        id: 10, 
+        mangaId: 2, 
+        number: 5, 
+        title: "El torneo", 
+        date: "2024-03-01", 
+        pages: 16
     }
-
 ];
 
 // ============================================
-// FUNCIONES PRINCIPALES
+// RESTO DE FUNCIONES (no cambian)
 // ============================================
 
 function loadRecentChapters() {
@@ -190,15 +223,11 @@ function loadReader(mangaId, chapterId) {
     if (chapter && manga) {
         document.title = `${manga.title} - Capítulo ${chapter.number} | MangaScan`;
         
-        // Generar páginas dinámicamente
-        // IMPORTANTE: Cambia la ruta base según donde tengas tus imágenes
-        // Ejemplo: "chapters/1/1/01.jpg" (mangaId/capitulo/pagina.jpg)
         const pagesContainer = document.getElementById('pagesContainer');
         let pagesHtml = '';
         
         for (let i = 1; i <= chapter.pages; i++) {
             const pageNum = String(i).padStart(2, '0');
-            // Ruta de ejemplo - CAMBIA ESTO POR LA RUTA DE TUS IMÁGENES REALES
             const imgPath = `chapters/${mangaId}/${chapter.number}/${pageNum}.jpg`;
             pagesHtml += `<img class="manga-page" src="${imgPath}" alt="Página ${i}" loading="lazy" onerror="this.src='https://via.placeholder.com/800x1200/2a2a3e/ff6b6b?text=Pagina+${i}+(Proximamente)'">`;
         }
@@ -239,10 +268,6 @@ function loadReader(mangaId, chapterId) {
         document.getElementById('pagesContainer').innerHTML = '<div class="loading">Error: No se encontró el capítulo</div>';
     }
 }
-
-// ============================================
-// FUNCIONES DE UTILIDAD
-// ============================================
 
 function getMangaTitle(mangaId) {
     const manga = mangasData.find(m => m.id === mangaId);

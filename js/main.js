@@ -14,6 +14,19 @@ const mangasData = [
         status: "En emisión",
         rating: 4.8
     }
+
+    {
+        id: 2,  // ← IMPORTANTE: ID diferente (2)
+        title: "Soredemo Ayumu Wa Yosetekuru",
+        title_alt: "De todas formas, Ayumu se acercará",
+        author: "Yamamoto Souichirou",
+        cover: "https://github.com/ragnarokscan/ragnarokscan.github.io/blob/main/covers/Soredemo%20Ayumu%20wa%20Yosetekuru.jpg?raw=true",
+        genre: ["Comedia", "Romance"],
+        description: "El manga relata el día a día de un jugador de shogi amateur y su Senpai, y la forma en la que él tratará de confesarle su amor... ¡Versión serie!",
+        status: "En emisión",
+        rating: 4.7
+    }
+
     // Aquí puedes agregar más mangas después
 ];
 
@@ -57,7 +70,17 @@ const chaptersData = [
         title: "Capítulo 310", 
         date: "2024-01-11", 
         pages: 9
+    },
+
+    { 
+        id: 225,  // ← ID único, sigue la secuencia
+        mangaId: 2,  // ← ID del nuevo manga
+        number: 225, 
+        title: "El primer movimiento", 
+        date: "2024-02-10", 
+        pages: 16  // ← Número de páginas reales
     }
+
 ];
 
 // ============================================

@@ -1,0 +1,27 @@
+{
+  "lastUpdate": "2024-01-15",
+  "mangas": [
+    {
+      "id": 1,
+      "title": "Karakai Jouzu No (Moto) Takagi-san",
+      "titleAlt": "La maestra bromista Takagi-san (Madre)",
+      "author": "Inaba Mifumi / Yamamoto Souichirou",
+      "cover": "https://raw.githubusercontent.com/ragnarokscan/ragnarokscan.github.io/refs/heads/main/covers/Karakai%20Jouzu%20No%20(Moto)%20Takagi-san.jpg",
+      "genres": ["Comedia", "Romance", "Recuentos de la vida"],
+      "description": "Spin-off de 'Karakai Jouzu no Takagi-san!' La ahora ex Takagi-san y su hija Chi-chan nos traen esta comedia bromista casera. ¿El papá aparecerá también? Una historia familiar llena de risas y momentos tiernos.",
+      "status": "En emisión",
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "title": "Soredemo Ayumu Wa Yosetekuru",
+      "titleAlt": "De todas formas, Ayumu se acercará",
+      "author": "Yamamoto Souichirou",
+      "cover": "https://github.com/ragnarokscan/ragnarokscan.github.io/blob/main/covers/Soredemo%20Ayumu%20wa%20Yosetekuru.jpg?raw=true",
+      "genres": ["Comedia", "Romance"],
+      "description": "El manga relata el día a día de un jugador de shogi amateur y su Senpai, y la forma en la que él tratará de confesarle su amor... ¡Versión serie!",
+      "status": "En emisión",
+      "rating": 4.7
+    }
+  ]
+}
